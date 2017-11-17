@@ -148,7 +148,7 @@ class Fraction:
         return self.sign * self.numerator / self.denominator
 
     def __int__(self):
-        return int(float(self))
+        return self.sign * self.numerator // self.denominator
 
     def __str__(self):
         if self.denominator == 1:
