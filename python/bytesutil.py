@@ -26,3 +26,17 @@ def int_from_bytes(b: bytes):
     Convert bytes to integer
     """
     return int.from_bytes(b, byteorder='big')
+
+
+def str_from_int(x: int):
+    """
+    Convert integer to string
+    """
+    return ''.join(map(chr, bytes_from_int(x)))
+
+
+def int_from_str(s: str):
+    """
+    Convert string to integer
+    """
+    return int_from_bytes(s.encode())
