@@ -1,3 +1,6 @@
+import binascii
+
+
 def bytes_from_file(filename, chunksize=8192):
     """
     Convert file to bytes
@@ -7,10 +10,9 @@ def bytes_from_file(filename, chunksize=8192):
         while True:
             chunk = f.read(chunksize)
             if chunk:
-                for b in chunk:
-                    ret += b
-                else:
-                    break
+                ret += chunk
+            else:
+                break
         return ret
 
 
@@ -40,3 +42,17 @@ def int_from_str(s: str):
     Convert string to integer
     """
     return int_from_bytes(s.encode())
+
+
+def bytes_from_str(s: str):
+    """
+    Convert string to bytes
+    """
+    return binascii.hexlify(s.encode())
+
+
+def str_from_bytes(b: bytes):
+    """
+    Convert bytes to string
+    """
+    return binascii.unhexlify(b).decode()
