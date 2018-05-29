@@ -34,7 +34,7 @@ def str_from_int(x: int):
     """
     Convert integer to string
     """
-    return ''.join(map(chr, bytes_from_int(x)))
+    return bytes_from_int(x).decode()
 
 
 def int_from_str(s: str):
@@ -48,11 +48,11 @@ def bytes_from_str(s: str):
     """
     Convert string to bytes
     """
-    return binascii.hexlify(s.encode())
+    return s.encode()
 
 
 def str_from_bytes(b: bytes):
     """
     Convert bytes to string
     """
-    return binascii.unhexlify(b).decode()
+    return b.decode()
